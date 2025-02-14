@@ -37,7 +37,6 @@ class FakultasController extends Controller
 
 public function update(Request $request, Fakultas $fakultas)
 {
-    // Validasi data
     $request->validate([
         'nama_fakultas' => 'required|string|max:255',
         'deskripsi' => 'required|string',
