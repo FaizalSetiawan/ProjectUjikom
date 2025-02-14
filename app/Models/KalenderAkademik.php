@@ -9,5 +9,12 @@ class KalenderAkademik extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['judul','tanggal_mulai','tanggal_selesai','deskripsi'];
+    protected $table = 'kalender_akademiks';
+
+    protected $fillable = [
+        'judul',
+        'tanggal_mulai',
+        'tanggal_selesai',
+        'deskripsi'
+    ];
 }

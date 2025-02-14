@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_prestasi');
-            $table->string('kategori');
+            $table->string('kategori')->nullable(); // Membuat kolom kategori nullable
             $table->date('tanggal');
             $table->text('deskripsi');
             $table->timestamps();

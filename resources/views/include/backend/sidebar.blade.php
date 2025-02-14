@@ -18,11 +18,51 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('welcome') }}">
+                <a class="nav-link" href="{{ route('jurusan.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-building text-warning text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1"> Jurusan </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('ukm.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-building text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> UKM </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('galeri.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-building text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Galeri </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('prestasi.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-building text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Prestasi </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('berita.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-building text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Berita </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('kalender-akademik.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Kalender Akademik</span>
                 </a>
             </li>
         </ul>

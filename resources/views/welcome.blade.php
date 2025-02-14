@@ -189,100 +189,76 @@
 </section>
 <!-- #services -->
 
-    <!--==========================
-      Berita Terbaru Section
-===========================-->
+<!--========================== Berita Terbaru Section ============================-->
 <section id="berita">
   <div class="container">
-    <header class="section-header">
-      <h3>Berita Terbaru</h3>
-      <p>Berikut adalah berita terbaru seputar Universitas Bhakti Kencana.</p>
+    <header class="section-header mb-4">
+      <h3 class="text-center">Berita Terbaru</h3>
+      <p class="text-center">Berikut adalah berita terbaru seputar Universitas Bhakti Kencana.</p>
     </header>
 
     <div class="row">
-      <!-- Berita 1 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ asset('img/berita1.jpg') }}" class="card-img-top" alt="Berita 1">
-          <div class="card-body">
-            <h5 class="card-title">Judul Berita 1</h5>
-            <p class="card-text">Deskripsi singkat berita ini akan ditampilkan di sini...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+      @foreach($beritas as $berita)
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top" alt="{{ $berita->judul }}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ $berita->judul }}</h5>
+            <p class="card-text flex-grow-1">{{ Str::limit($berita->isi_berita, 100) }}</p>
+            <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-primary mt-auto">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
-
-      <!-- Berita 2 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ asset('img/berita2.jpg') }}" class="card-img-top" alt="Berita 2">
-          <div class="card-body">
-            <h5 class="card-title">Judul Berita 2</h5>
-            <p class="card-text">Deskripsi singkat berita ini akan ditampilkan di sini...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Berita 3 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ asset('img/berita3.jpg') }}" class="card-img-top" alt="Berita 3">
-          <div class="card-body">
-            <h5 class="card-title">Judul Berita 3</h5>
-            <p class="card-text">Deskripsi singkat berita ini akan ditampilkan di sini...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
+      @endforeach
     </div>
   </div>
 </section>
 <!-- #berita -->
 
 
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts"  class="wow fadeIn">
-      <div class="container">
+   <!--========================== Kalender Akademik Section ============================-->
+<section id="kalender-akademik">
+  <div class="container">
+    <header class="section-header mb-4">
+      <h3 class="text-center">Kalender Akademik</h3>
+      <p class="text-center">Berikut adalah kalender akademik Universitas Bhakti Kencana.</p>
+    </header>
 
-        <header class="section-header">
-          <h3>Facts</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </header>
-
-        <div class="row counters">
-
-  				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">274</span>
-            <p>Clients</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">421</span>
-            <p>Projects</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,364</span>
-            <p>Hours Of Support</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">18</span>
-            <p>Hard Workers</p>
-  				</div>
-
-  			</div>
-
-        <div class="facts-img">
-          <img src="img/facts-img.png" alt="" class="img-fluid">
+    <div class="row">
+      @forelse($kalenders as $kalender)
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ $kalender->judul }}</h5>
+            <p class="card-text">
+              <strong>Mulai:</strong> {{ \Carbon\Carbon::parse($kalender->tanggal_mulai)->translatedFormat('d F Y') }}<br>
+              <strong>Selesai:</strong> {{ \Carbon\Carbon::parse($kalender->tanggal_selesai)->translatedFormat('d F Y') }}
+            </p>
+            <p class="card-text flex-grow-1">{{ \Illuminate\Support\Str::limit($kalender->deskripsi, 100) }}</p>
+            <a href="{{ route('kalender-akademik.show', $kalender->id) }}" class="btn btn-primary mt-auto">Detail</a>
+          </div>
         </div>
-
       </div>
-    </section><!-- #facts -->
+      @empty
+      <div class="col-12 text-center">
+        <p class="text-muted">Belum ada data kalender akademik.</p>
+      </div>
+      @endforelse
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-3">
+      {{ $kalenders->links() }}
+    </div>
+  </div>
+</section>
+<!-- #kalender-akademik -->
+
+
+
+
+
+      
 
     <!--==========================
       Portfolio Section
